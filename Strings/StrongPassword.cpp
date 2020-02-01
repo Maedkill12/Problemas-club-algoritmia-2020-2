@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-//a = 97  A= 65   z=122   Z = 90 !@#$%^&*()-+ //holamundo
+//a = 97  A= 65   z=122   Z = 90 !@#$%^&*()-+
 // Complete the minimumNumber function below.
 int minimumNumber(int n, string password) {
     int caracteres = 0, contador=0;
