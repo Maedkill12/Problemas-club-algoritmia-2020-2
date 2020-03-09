@@ -5,23 +5,23 @@ using namespace std;
 typedef set<string> conjunto;
 
 int main(){
-	vector<conjunto> digitos;
-	priority_queue<int, vector<int>, greater<int>> numero;
-	set<string> c;
-	string cadena;
-	int n, caso = 1;
-	cin >> n;
-	while(n != 0){
-		for(int i=0; i<n; i++){
-			cin >> cadena;
-			int pos = 0;
-			if(digitos.size()==0){
+    vector<conjunto> digitos;
+    priority_queue<int, vector<int>, greater<int>> numero;
+    set<string> c;
+    string cadena;
+    int n, caso = 1;
+    cin >> n;
+    while(n != 0){
+        for(int i=0; i<n; i++){
+            cin >> cadena;
+            int pos = 0;
+            if(digitos.size()==0){
                 c.insert(cadena);
                 digitos.push_back(c);
-			}else{
-			    if(digitos[pos].count(cadena) == 0){
+            }else{
+                if(digitos[pos].count(cadena) == 0){
                     digitos[pos].insert(cadena);
-			    }else{
+                }else{
                     if(pos < digitos.size()){
                         while(pos < digitos.size()){
                             if(digitos[pos].count(cadena) == 0){
@@ -40,23 +40,22 @@ int main(){
                         c.insert(cadena);
                         digitos.push_back(c);
                     }
-			    }
-			}
-		}
-		for(auto i=0; i<digitos.size(); i++){
+                }
+            }
+        }
+        for(auto i=0; i<digitos.size(); i++){
             numero.push(digitos[i].size());
-		}
-		cout << "Case " << caso << ": ";
-		while(!numero.empty()){
+        }
+        cout << "Case " << caso << ": ";
+        while(!numero.empty()){
             cout << numero.top();
             numero.pop();
-		}
-		cout << endl;
-		caso++;
+        }
+        cout << endl;
+        caso++;
         digitos.clear();
         c.clear();
-		cin >> n;
-	}
-	return 0;
+        cin >> n;
+    }
+    return 0;
 }
-
